@@ -5,6 +5,7 @@ import transfer from "./transfer";
 import erc20Transfer from "./erc20Transfer";
 import batchTransfer from "./batchTransfer";
 import batchErc20Transfer from "./batchErc20Transfer";
+import stashItAway from "./stashItAway";
 
 const program = new Command();
 
@@ -39,6 +40,15 @@ program
   .requiredOption("-amt, --amount <decimal>", "Amount of the token to transfer")
   .action(async (opts) =>
     erc20Transfer(opts.token, opts.to, opts.amount, Boolean(opts.withPaymaster))
+  );
+
+program
+  .command("stashItAway")
+  .description("Stash money in the Vault")
+  .option("-pm, --withPaymaster", "Use a paymaster for this transaction")
+  .requiredOption("-amt, --amount <decimal>", "Amount to stash")
+  .action(async (opts) =>
+    stashItAway(opts.amount, Boolean(opts.withPaymaster))
   );
 
 program

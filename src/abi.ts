@@ -10,3 +10,45 @@ export const ERC20_ABI = [
   // Events
   "event Transfer(address indexed from, address indexed to, uint amount)",
 ];
+
+export const STASH_VAULT_ABI = [
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "master",
+        "type": "address"
+      }
+    ],
+    "name": "getStash",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "stashItAway",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "unstashIt",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
